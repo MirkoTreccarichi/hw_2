@@ -28,6 +28,10 @@ Route::get('login', function () {
     //todo view login
 });
 
+Route::post('login', function () {
+    //todo controlli sul login
+});
+
 Route::get('logout', function () {
     //todo logout
 });
