@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//todo inizializzare il modello
+//todo inizializzare i controller
 Route::get('/', function () {
     return view('welcome');
 });
@@ -28,8 +29,7 @@ Route::get('login', function () {
 });
 
 Route::get('logout', function () {
-    return view('logout');
-    //todo view logout
+    //todo logout
 });
 
 Route::get('lista_cliente', function () {
