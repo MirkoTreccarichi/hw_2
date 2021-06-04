@@ -24,18 +24,18 @@ Route::get('home', function () {
     //todo view home
 });
 
-Route::get('login', function () {
-    return view('home');
+//    todo  logController
+Route::get('login', null
     //todo view login
-});
+);
 
-Route::post('login', function (Request $request) {
+Route::post('login', null
     //todo controlli sul login
-});
+);
 
-Route::get('logout', function () {
+Route::get('logout', null
     //todo logout
-});
+);
 
 Route::get('lista_cliente', function () {
     return view('customer_list');
