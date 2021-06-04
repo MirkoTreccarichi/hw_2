@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,36 +12,33 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//todo inizializzare il modello
-//todo inizializzare i controller
+
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('home', function () {
-    return view('home');
-    //todo view home
+//todo inizializzare i controller
+Route::get('/home', function () {
+    return view('guest');
+//    todo view home
 });
 
 //    todo  logController
-Route::get('login', null
+Route::get('/login', null
     //todo view login
 );
 
-Route::post('login', null
+Route::post('/login', null
     //todo controlli sul login
 );
 
-Route::get('logout', null
+Route::get('/logout', null
     //todo logout
 );
 
-Route::get('lista_cliente', function () {
-    return view('customer_list');
+Route::get('/lista_cliente', null
     //todo view customer_list
-});
+);
 
-Route::get('area_riservata', function () {
-    return view('reserved_area');
+Route::get('/area_riservata', null
     //todo view reserved_area
-});
+);
