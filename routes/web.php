@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +29,7 @@ Route::get('login', function () {
     //todo view login
 });
 
-Route::post('login', function () {
+Route::post('login', function (Request $request) {
     //todo controlli sul login
 });
 
