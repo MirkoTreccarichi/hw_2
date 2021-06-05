@@ -9,8 +9,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Smartket - @yield('title')</title>
-
-      {{--  <link rel="stylesheet" href="styles/home.css">
+        <link rel="stylesheet" href="./resources/styles/app.css">
+        @yield('style')
+      {{--
         <script src="scripts/api.js" defer="true"></script>
         fixme--}}
     </head>
