@@ -1,0 +1,36 @@
+header {
+    /*background-image: url(../img/network-background.jpg);fixme*/
+    background-size: cover;
+    background-position: center;
+}
+header h1,
+header p {
+    font-weight: bold;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+#slogan h1 {
+    font-size: 3.5em;
+}
+
+#slogan h2 {
+    font-size: 2em;
+}
+
+#slogan {
+    font-family: 'Roboto', Arial, sans-serif;
+    text-align: center;
+    color: white;
+    z-index: 1;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgb(11, 77, 51);
+}
