@@ -9,6 +9,24 @@ class Prodotto extends Model{
 
 
     /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'codice'
+    ];
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'produttore','prezzo_punti','prezzo','tipo','nome','src'
+    ];
+
+    /**
      * The roles that belong to the user.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */

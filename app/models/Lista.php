@@ -15,6 +15,24 @@ class Lista extends Pivot {
      */
     public $incrementing = true;
 
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'id_cliente','codice_prodotto'
+    ];
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'quantita_prodotto'
+    ];
+
 
 
 }
