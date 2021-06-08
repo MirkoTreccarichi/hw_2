@@ -9,18 +9,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Smartket - @yield('title')</title>
-        <link rel="stylesheet" href="./resources/styles/app.css">
-        @yield('style')
-      {{--
-        <script src="scripts/api.js" defer="true"></script>
-        fixme--}}
+        <link rel="stylesheet" href="{{asset("styles/app.css")}}"
+        @stack('styles')
+        @stack('scripts')
     </head>
 
     <body>
     <header>
         <nav>
             <div id="logo">
-                <img id="logoimg" src="storage/app/public/img/Smartket/SmartketGreen.png" alt="">
+                <img id="logoimg" src="{{asset("img/Smartket/SmartketGreen.png")}}" alt="">
                 <div id="comp">Smartket&Co</div>
             </div>
 
@@ -52,16 +50,16 @@
 
         <footer>
             <div id="logo">
-                <img id="logoimg" src="storage/app/public/img/Smartket/SmartketWhite.png" alt="">
+                <img id="logoimg" src="{{asset("img/Smartket/SmartketWhite.png")}}" alt="">
                 <div id="comp">Smartket&Co</div>
             </div>
 
             <div id="social">
 
-                <img src="storage/app/public/img/loghi/facebook.png" alt="">
-                <img src="storage/app/public/img/loghi/ig.png" alt="">
-                <img src="storage/app/public/img/loghi/whatsapp-128.png" alt="">
-                <img src="storage/app/public/img/loghi/youtube-128.png" alt="">
+                <img src="{{asset("img/loghi/facebook.png")}}" alt="">
+                <img src="{{asset("img/loghi/ig.png")}}" alt="">
+                <img src="{{asset("img/loghi/whatsapp-128.png")}}" alt="">
+                <img src="{{asset("img/loghi/youtube-128.png")}}" alt="">
 
             </div>
 

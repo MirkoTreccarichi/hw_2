@@ -1,9 +1,10 @@
 @extends("layouts.app")
 @section('home', ' | HOME')
-@section('style')
-    <link rel="stylesheet" href="resources/styles/home.css"
-    @yield('other_style')
-@endsection
+
+@push('styles')
+    <link rel="stylesheet" href="{{asset("/styles/home.css")}}">
+@endpush
+@stack('home_style')
 
 @section('content')
 
