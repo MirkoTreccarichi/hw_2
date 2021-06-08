@@ -2,7 +2,7 @@
 @push('home_style')
     <link rel="stylesheet" href="{{asset("styles/guest.css")}}">
 @endpush
-@section("home_content")
+@section("content")
 
     <article>
         <section id="news">
@@ -34,8 +34,10 @@
                 Bio è meglio! Scopri una nuova linea rispettosa dell' ambiente
             </h2>
         </section>
+    </article>
 
-        <h1 class="title">Scopri la notizie dello slowfood</h1>
+    <article class="info">
+        <h1 class="title">Scopri le notizie a tema slowfood</h1>
 
         <section class="news grid" id="apiNews">
 
@@ -44,8 +46,9 @@
         <h1 class="title">I nostri partners</h1>
 
         <section class="partners  grid" id="apiFinnhub">
-{{--        fixme aggiustare partners anche su css--}}
         </section>
 
     </article>
+
+
 @endsection

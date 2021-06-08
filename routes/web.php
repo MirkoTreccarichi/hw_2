@@ -1,5 +1,6 @@
 <?php
 
+use App\models\Punto_vendita;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,26 +20,30 @@ Route::get('/', function () {
 //todo inizializzare i controller
 Route::get('/home', function () {
     return view('guest');
-//    todo view home
+//    todo home controller
 });
 
 //    todo  logController
 Route::get('/login', null
-    //todo view login
+    //todo login controller
 );
 
 Route::post('/login', null
-    //todo controlli sul login
 );
 
 Route::get('/logout', null
-    //todo logout
 );
 
 Route::get('/lista_cliente', null
-    //todo view customer_list
+    //todo customer controller
 );
 
 Route::get('/area_riservata', null
-    //todo view reserved_area
+);
+
+Route::get('/test', function () {
+        foreach (Punto_vendita::all() as $p) {
+            echo $p;
+        }
+    }
 );
