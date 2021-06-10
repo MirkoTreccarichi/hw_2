@@ -7,7 +7,11 @@ namespace App\Http\Controllers;
 class LoginController extends Controller
 {
     function login(){
-        return redirect();
+        $username = session('username');
+        if(session('username'))
+            redirect('area_riservata');
+        else
+            return view('login');
     }
 
     function checkLogin(){
