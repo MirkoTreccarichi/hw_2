@@ -3,6 +3,7 @@ body {
     font-size: 16px;
     color: #11656b;
     font-family: 'Roboto', Arial, sans-serif;
+    background-color: #11656b;
 }
 
 a {
@@ -12,15 +13,11 @@ a {
 }
 
 section {
-    background-color: #11656b;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 50px;
-    padding-bottom: 0;
-    padding-top: 0;
     color: white;
 }
 
@@ -41,12 +38,6 @@ section {
     color: white;
 }
 
-form {
-    color: white;
-    padding: 5%;
-    display: flex;
-    flex-direction: column;
-}
 
 .remember {
     display: flex;
@@ -61,7 +52,6 @@ form div {
 footer {
     position: absolute;
     width: 90%;
-    bottom: 2%;
     padding: 1em;
     height: 40px;
     background-color: #11656b;
@@ -70,6 +60,7 @@ footer {
     align-items: center;
     text-transform: uppercase;
     color: white;
+    bottom: 2%;
 }
 
 footer #logoimg {
@@ -90,4 +81,9 @@ footer div {
     body {
         font-size: 10px;
     }
+}
+
+section div {
+    display: flex;
+
 }

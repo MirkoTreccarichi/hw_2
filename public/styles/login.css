@@ -1,0 +1,10 @@
+form {
+    color: white;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    height: 100vh;
+}

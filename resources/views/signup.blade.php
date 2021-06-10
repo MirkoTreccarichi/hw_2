@@ -1,7 +1,7 @@
 @extends('layouts.validation')
 @section('title', '| SIGNUP')
 @push('styles')
-    <link rel="stylesheet" href="{{asset('styles/login.css')}}">
+    <link rel="stylesheet" href="{{asset('styles/signup.css.css')}}">
 @endpush
 @section('content')
     <!-- SECTION -->
