@@ -29,8 +29,9 @@ Route::get('api/comp/','ApiController@loadCompanies')->name('api/comp');
 
 //    todo  logController
 Route::get('/login', 'LoginController@login')->name('login');
-
 Route::post('/login', 'LoginController@checkLogin');
+
+Route::get('/registrazione', 'RegisterControoler');
 
 Route::get('/logout', 'LoginController@logout');
 
