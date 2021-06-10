@@ -14,23 +14,9 @@
             </div>
 
             <div class="link">
-                @if(session('username'))
-                    <a class='login' href={{-- fixme 'login.php'--}}>Area Personale</a>
-                @else
-                    <a class='login' href={{-- fixme 'login.php'--}}>Login</a>
-                @endif
-                {{--
-                                <?php
-                                $text = "login";
-                                if(checkAuth())
-                                    $text = "Area Personale";
-
-                                echo "<a class='login' href='login.php'>$text</a>";
-                                ?>
-                               fixme rivedere questo meccanismo--}}
-
-
-            </div>
+                <a class='login' href='{{route('login')}}'>@if(session('username')) Area Personale
+                    @else Login @endif</a>
+             </div>
 
             <div id="menu">
                 <div></div>
