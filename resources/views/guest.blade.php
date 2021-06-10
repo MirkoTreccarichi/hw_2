@@ -2,6 +2,24 @@
 @push('home_style')
     <link rel="stylesheet" href="{{asset("styles/guest.css")}}">
 @endpush
+@push('scripts')
+    <script src='{{ asset('js/api.js') }}' defer></script>
+    <script type="text/javascript">
+        const NEWS_API_ROUTE = '{{route('api/news')}}';
+        const COMP_API_ROUTE = '{{route('api/comp',['symbol'])}}';
+    </script>
+@endpush
+@section('slogan')
+    <div id="slogan">
+        <h1>
+            La spesa che ti piace
+        </h1>
+        <h2>
+            il futuro è a un passo da te
+        </h2>
+    </div>
+
+@endsection
 @section("content")
 
     <article>
