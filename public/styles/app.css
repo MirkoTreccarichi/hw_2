@@ -120,10 +120,7 @@ footer #logoimg {
     height: 2em;
     width: 3em;
 }
-/*
-div#promo {
-    justify-content: flex-start;
-}todo spostare al guest*/
+
 
 #social img {
     height: 2em;
@@ -135,12 +132,7 @@ div#promo {
 #author p {
     margin: 0.5em;
 }
-/*
-#bio {
-    color: greenyellow;
-    text-shadow: 2px 2px 1px rgb(5, 71, 5);
-    font-weight: bolder;
-}todo spostare al guest*/
+
 
 #logoimg {
     height: 4em;
@@ -255,6 +247,12 @@ footer #logoimg {
 
 #author p {
     margin: 0.5em;
+}
+
+.grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 
