@@ -1,7 +1,10 @@
 @extends('layouts.validation')
 @section('title', '| SIGNUP')
 @push('styles')
-    <link rel="stylesheet" href="{{asset('styles/signup.css.css')}}">
+{{--    <link rel="stylesheet" href="{{asset('styles/signup.css')}}">--}}
+@endpush
+@push('scripts')
+    <script defer src = '{{asset('js/signup.js')}}'></script>
 @endpush
 @section('content')
     <!-- SECTION -->

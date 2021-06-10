@@ -8,3 +8,7 @@ form {
 section {
     height: 100vh;
 }
+
+footer {
+    bottom: 2%;
+}

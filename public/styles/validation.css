@@ -13,7 +13,6 @@ a {
 }
 
 section {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,7 +59,7 @@ footer {
     align-items: center;
     text-transform: uppercase;
     color: white;
-    bottom: 2%;
+
 }
 
 footer #logoimg {
