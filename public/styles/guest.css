@@ -1,62 +1,71 @@
-header {
-    height: 500px;
-    position: relative;
+/* MHW3 */
+
+section#apiNews div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    margin: 10px;
+    padding: 5px;
+    text-align: justify;
+    border-radius: 5px;
+    box-shadow: 10px 10px 20px 0 rgb(0 0 0 / 30%);
+}
+
+section#apiNews div img {
+    width: 200px;
+}
+
+section#apiFinnhub div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 98vw;
+    width: 500px;
+    margin: 5px;
+    padding: 5px;
+    /* border: groove 2.5px lightgrey; */
 }
 
-section#news div {
-    position: relative;
-    top: 10px;
-    width: 600px;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    border: 0.2em solid silver;
+section#apiFinnhub div img {
+    width: 40px;
 }
 
-section#news img {
-    position: absolute;
-    width: inherit;
-    height: inherit;
-    z-index: -1;
+section#apiFinnhub {
+    margin: 50px;
+    align-items: center;
+    justify-content: center;
 }
 
-section h1,
-section h2 {
+section.grid h1 {
+    color: unset;
+}
+
+section#apiNews {
+    padding: 10px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.title {
+    font-style: italic;
+    text-align: center;
+    font-size: 3em;
+    margin: 1em;
+}
+
+section#apiNews div p {
     font-family: 'Roboto Slab', serif;
-    color: #11656b;
+    padding: 5px;
 }
 
-section h1 {
-    width: 50%;
-    color: white;
-    font-size: 2em;
-}
-
-section h2 {
-    font-family: 'Roboto Slab', serif;
-    font-weight: bolder;
-    font-size: 1.5em;
+div.choices {
+    flex-wrap: wrap;
+    padding: 50px;
 }
 
 div#promo {
     justify-content: flex-start;
-}
-
-#social img {
-    height: 2em;
-    width: 2em;
-    margin: 0.3em;
-    cursor: pointer;
-}
-
-#author p {
-    margin: 0.5em;
 }
 
 #bio {
@@ -65,15 +74,6 @@ div#promo {
     font-weight: bolder;
 }
 
-#slogan {
-    font-family: 'Roboto', Arial, sans-serif;
-    text-align: center;
-    color: white;
-    z-index: 1;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 5px rgb(11, 77, 51);
-}
 /*
 
 !* CSS of the new section "poster" *!
