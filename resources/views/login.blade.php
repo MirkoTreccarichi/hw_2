@@ -24,6 +24,6 @@
                 <input type='submit' value="Accedi">
             </div>
         </form>
-        <div class="signup">Non hai un account ? <a href="signup.php">Registrati !</a></div>
+        <div class="signup">Non hai un account ? <a href="{{route('registra')}}">Registrati !</a></div>
     </section>
 @endsection
