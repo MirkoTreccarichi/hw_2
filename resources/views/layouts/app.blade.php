@@ -8,46 +8,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Smartket - @yield('title')</title>
+        <title>Smartket @yield('title')</title>
 
         @stack('styles')
-        <link rel="stylesheet" href="{{asset("styles/app.css")}}"
+        <link rel="stylesheet" href="{{asset("styles/app.css")}}">
         @stack('scripts')
     </head>
 
     <body>
-    <header>
-        <nav>
-            <div id="logo">
-                <img id="logoimg" src="{{asset("img/Smartket/SmartketGreen.png")}}" alt="">
-                <div id="comp">Smartket&Co</div>
-            </div>
-
-            <div class="link">
-                {{--
-                                <?php
-                                $text = "login";
-                                if(checkAuth())
-                                    $text = "Area Personale";
-
-                                echo "<a class='login' href='login.php'>$text</a>";
-                                ?>
-                               fixme rivedere questo meccanismo--}}
-
-
-            </div>
-
-            <div id="menu">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-
-        </nav>
-
-        @yield('slogan')
-
-    </header>
+        @yield('header')
 
         @yield('content')
 
