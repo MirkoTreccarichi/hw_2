@@ -10,9 +10,8 @@ function checkEmail(event) {
         setError(email);
     }
 
-    fetch("http://localhost/HM_1/emailFree.php", {
+    fetch("/email_free", {
         method: "post",
-        //fixme cambiare questa fetch alla nuova root che restituisce se l'email è libera
         body: new FormData(signupForm)
     }).then(promise => promise.json()).then(json => {
         if (!json) {

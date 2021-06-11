@@ -56,6 +56,6 @@
             </div>
         </form>
         <div class="error_display hidden"></div>
-        <div class="signup">Hai già un account ? <a href="login.php ">Fai il login !</a></div>
+        <div class="signup">Hai già un account ? <a href=" {{ route('login') }} ">Fai il login !</a></div>
     </section>
 @endsection
