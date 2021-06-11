@@ -33,6 +33,7 @@ Route::post('/login', 'LoginController@checkLogin');
 
 Route::get('/registrazione', 'RegisterController@page')->name('registrazione');
 Route::post('/registrazione', 'RegisterController@register')->name('registra');
+Route::post('/registrazione/email_free','RegisterController@emailFree')->name('emailFree');
 
 Route::get('/logout', 'LoginController@logout');
 

@@ -12,3 +12,22 @@ form {
 footer {
     bottom: -3%;
 }
+
+.error {
+    background-color: rgb(237, 155, 169);
+}
+
+.hidden {
+    display: none;
+}
+
+.error_display {
+    font: message-box;
+}
+
+
+@media (max-width: 300px) {
+    body {
+        font-size: 10px;
+    }
+}
