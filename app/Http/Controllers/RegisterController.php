@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 
+use App\models\Cliente;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -17,6 +18,14 @@ class RegisterController extends Controller
     }
 
     function emailFree(Request $request){
-        //todo email in input libera?
+        if(!$request->input('email'))
+            return false;
+
+        $cliente = Cliente::where('email',$request->input('email'))->first();
+
+        if($cliente != null) {
+            return false;
+        }
+        return true;
     }
 }
