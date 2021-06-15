@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\models\Cliente;
 use Illuminate\Http\Request;
+use Psy\Util\Json;
 
 class RegisterController extends Controller
 {
@@ -24,8 +25,8 @@ class RegisterController extends Controller
         $cliente = Cliente::where('email',$request->input('email'))->first();
 
         if($cliente != null) {
-            return false;
+            return Json::encode(false);
         }
-        return true;
+        return Json::encode(true);
     }
 }
