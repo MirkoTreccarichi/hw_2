@@ -14,7 +14,7 @@
     <section>
         <h1 class="comp">Registrati!</h1>
         <div class="logo">
-            <img class="logoimg" src="img/Smartket/SmartketWhite.png">
+            <img class="logoimg" src="img/Smartket/SmartketWhite.png" alt="">
             <div class="comp">Smartket</div>
         </div>
 
@@ -22,28 +22,33 @@
        <form name='signup' method='post'>
            <!-- NAME -->
            <div class="name">
-               <label for="name">Nome</label>
+               <label for="name">Nome
                <input type="text" name="name">
+               </label>
            </div>
            <!-- SURNAME -->
            <div class="surname">
-               <label for="surname">Cognome</label>
+               <label for="surname">Cognome
                <input type="text" name="surname">
+               </label>
            </div>
            <!-- BIRTHDATE -->
            <div class="birthdate">
-               <label for="birthdate">Data di Nascita</label>
+               <label for="birthdate">Data di Nascita
                <input type="date" name="birthdate">
+               </label>
            </div>
            <!-- EMAIL -->
            <div class="email">
-               <label for="email">Email</label>
+               <label for="email">Email
                <input type="text" name="email">
+               </label>
            </div>
            <!-- PASSWORD  -->
            <div class="password">
-               <label for='password'>Password</label>
+               <label for='password'>Password
                <input type='password' name='password'>
+               </label>
            </div>
            <!-- CONFIRM PASSWORD  -->
            <div class="confirm_password">

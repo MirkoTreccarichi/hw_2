@@ -13,12 +13,14 @@
 
         <form name='login' method='post'>
             <div class="email">
-                <label for='email'>Email</label>
+                <label for='email'>Email
                 <input type='text' name='email'>
+                </label>
             </div>
             <div class="password">
-                <label for='password'>Password</label>
+                <label for='password'>Password
                 <input type='password' name='password'>
+                </label>
             </div>
             <div class="submit">
                 <input type='submit' value="Accedi">
