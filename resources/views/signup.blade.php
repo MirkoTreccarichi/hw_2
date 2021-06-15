@@ -14,12 +14,13 @@
     <section>
         <h1 class="comp">Registrati!</h1>
         <div class="logo">
-            <img class="logoimg" src="img/Smartket/SmartketWhite.png" alt="">
+            <img class="logoimg" src="{{asset('img/Smartket/SmartketWhite.png')}}" alt="">
             <div class="comp">Smartket</div>
         </div>
 
        <!-- FORM -->
        <form name='signup' method='post'>
+        @csrf
            <!-- NAME -->
            <div class="name">
                <label for="name">Nome
@@ -52,8 +53,9 @@
            </div>
            <!-- CONFIRM PASSWORD  -->
            <div class="confirm_password">
-               <label for='confirm_password'>Ripeti la Password</label>
+               <label for='confirm_password'>Ripeti la Password
                <input type='password' name='confirm_password'>
+               </label>
            </div>
            <div class="submit">
                <input type='submit' value="Registrati">
