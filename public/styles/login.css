@@ -1,7 +1,6 @@
 form {
     color: white;
-    padding: 5%;
-    display: flex;
+    padding: 2%;
     flex-direction: column;
 }
 
@@ -11,4 +10,8 @@ section {
 
 footer {
     bottom: 2%;
+}
+
+div.submit input{
+    margin-top: 4%;
 }
