@@ -1,4 +1,3 @@
-// fixme
 
 //FUNCTIONS
 
@@ -10,7 +9,7 @@ function checkEmail(event) {
         setError(email);
     }
 
-    fetch("/email_free", {
+    fetch("http://localhost/HW_2/public/registrazione/email_free", {
         method: "post",
         body: new FormData(signupForm)
     }).then(promise => promise.json()).then(json => {
