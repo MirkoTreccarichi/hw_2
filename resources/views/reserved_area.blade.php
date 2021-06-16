@@ -1,9 +1,10 @@
 @extends("layouts.home")
+@section('title', ' | HOME')
 @push('home_style')
     <link rel="stylesheet" href="{{asset("styles/reserved_area.css")}}">
 @endpush
 @push('scripts')
-{{--    todo inserire gli script--}}
+    <script src="{{asset('js/script.js')}}" defer></script>
 @endpush
 @section('buttons')
     <div class="link">
@@ -16,7 +17,7 @@
 
         <section class="poster">
 
-            <h1> <a href="">Fai la lista , ritira dopo ! </a> </h1>
+            <h1> <a href="{{route('list')}}">Fai la lista , ritira dopo ! </a> </h1>
 {{--            todo view lista prodotti--}}
 
 
