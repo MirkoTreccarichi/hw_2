@@ -1,3 +1,56 @@
 header{
     height: 74px;
 }
+
+/* CSS of the new section "poster" */
+
+div.titleCustomerPoint {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.customerPoint img {
+    width: inherit;
+}
+
+.titleCustomerPoint img {
+    height: 30px;
+    width: 30px;
+}
+
+div.customerPoint {
+    margin: 20px;
+    width: 250px;
+}
+
+.hidden {
+    display: none;
+}
+
+.poster h1,
+.poster h2,
+.poster h3,
+.poster h4,
+.poster h5 {
+    font-style: italic;
+    color: #11656b;
+}
+
+.selected {
+    display: none;
+}
+
+.grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.city {
+    height: 180px;
+}
+
+a {
+    color: currentColor;
+}
