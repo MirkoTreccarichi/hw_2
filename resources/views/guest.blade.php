@@ -9,6 +9,12 @@
         const COMP_API_ROUTE = '{{route('api/comp',['symbol'])}}';
     </script>
 @endpush
+@section('buttons')
+    <div class="link">
+        <a class='login' href='{{route('login')}}'>@if(session('username')) Area Personale
+            @else Login @endif</a>
+    </div>
+@endsection
 @section('slogan')
     <div id="slogan">
         <h1>

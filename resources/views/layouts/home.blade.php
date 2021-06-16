@@ -13,10 +13,8 @@
                 <div id="comp">Smartket&Co</div>
             </div>
 
-            <div class="link">
-                <a class='login' href='{{route('login')}}'>@if(session('username')) Area Personale
-                    @else Login @endif</a>
-             </div>
+            @yield('buttons')
+
 
             <div id="menu">
                 <div></div>
