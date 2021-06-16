@@ -1,5 +1,4 @@
 @extends("layouts.app")
-@section('title', ' | HOME')
 
 @push('styles')
     <link rel="stylesheet" href="{{asset("/styles/home.css")}}">
