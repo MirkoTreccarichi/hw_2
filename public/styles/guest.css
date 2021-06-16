@@ -1,6 +1,4 @@
-/* MHW3 */
-
-section#apiNews div {
+    section#apiNews div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,7 +22,6 @@ section#apiFinnhub div {
     width: 500px;
     margin: 5px;
     padding: 5px;
-    /* border: groove 2.5px lightgrey; */
 }
 
 section#apiFinnhub div img {
