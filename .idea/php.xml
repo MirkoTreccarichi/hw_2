@@ -107,7 +107,6 @@
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
   <component name="PhpStepFilterConfiguration">
     <skipped_functions>
-      <skipped_function name="Illuminate\Routing\Pipeline-&gt;Illuminate\Pipeline\{closure:C:\xampp\htdocs\HW_2\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php:143-174}" />
     </skipped_functions>
   </component>
   <component name="PhpUnit">
