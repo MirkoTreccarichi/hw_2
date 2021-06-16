@@ -22,7 +22,7 @@ class Cliente extends Model{
      * @var array
      */
     protected $fillable = [
-        'nome','cognome','data_nascita','email'
+        'nome','cognome','data_nascita','email','password'
     ];
 
     /**
