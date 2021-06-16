@@ -7,11 +7,12 @@
     <section>
         <h1 class="comp">Benvenuto!</h1>
         <div class="logo">
-            <img class="logoimg" src="img/Smartket/SmartketWhite.png">
+            <img class="logoimg" src="{{asset('img/Smartket/SmartketWhite.png')}}" alt="">
             <div class="comp">Smartket</div>
         </div>
 
         <form name='login' method='post'>
+            @csrf
             <div class="email">
                 <label for='email'>Email
                 <input type='text' name='email'>
