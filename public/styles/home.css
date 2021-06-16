@@ -1,7 +1,12 @@
 header {
-    background-image: url(../img/header/network-background.jpg);
     background-size: cover;
     background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 98vw;
 }
 header h1,
 header p {
@@ -33,16 +38,6 @@ header::before {
     letter-spacing: 4px;
     text-transform: uppercase;
     text-shadow: 2px 2px 5px rgb(11, 77, 51);
-}
-
-header {
-    height: 500px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 98vw;
 }
 
 section#news div {
@@ -96,18 +91,4 @@ div#promo {
     margin: 0.5em;
 }
 
-#bio {
-    color: greenyellow;
-    text-shadow: 2px 2px 1px rgb(5, 71, 5);
-    font-weight: bolder;
-}
 
-#slogan {
-    font-family: 'Roboto', Arial, sans-serif;
-    text-align: center;
-    color: white;
-    z-index: 1;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 5px rgb(11, 77, 51);
-}

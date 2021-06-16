@@ -74,8 +74,19 @@ div#promo {
     font-weight: bolder;
 }
 
+#slogan {
+    font-family: 'Roboto', Arial, sans-serif;
+    text-align: center;
+    color: white;
+    z-index: 1;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgb(11, 77, 51);
+}
+
 header {
     height: 500px;
+    background-image: url(../img/header/network-background.jpg);
 }
 
 /*
