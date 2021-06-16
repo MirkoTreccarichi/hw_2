@@ -74,6 +74,10 @@ div#promo {
     font-weight: bolder;
 }
 
+header {
+    height: 500px;
+}
+
 /*
 
 !* CSS of the new section "poster" *!
