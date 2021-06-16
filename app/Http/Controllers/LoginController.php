@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
+    static function isLogged(){
+        $aux = session('username');
+        return $aux;
+    }
     function login(){
         if(session('username'))
             return redirect('area_riservata');
@@ -22,7 +26,7 @@ class LoginController extends Controller
             $utente = Cliente::where('email',$request->input('email'))->first();
 
             if (password_verify($request->input('password'),$utente->password)){
-                session(['username','user_id'],[$request->input('email'),$utente->id]);
+                session(['username' => $request->input('email'),'user_id'=>$utente->id ]);
                 return redirect(route('customer_area'));
             }
 
