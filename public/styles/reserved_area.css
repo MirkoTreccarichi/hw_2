@@ -54,3 +54,7 @@ div.customerPoint {
 a {
     color: currentColor;
 }
+
+.button{
+    cursor: pointer;
+}
