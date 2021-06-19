@@ -73,7 +73,7 @@ function onClickNotPreference(event) {
 
     favorite.querySelector("h4.details").classList.remove("hidden");
     //changing the button and the listener before the shifting
-    imgButton.src = "img/baseline_thumb_up_grey_24dp.png"
+    imgButton.src = "img/buttons/baseline_thumb_up_grey_24dp.png"
     imgButton.removeEventListener("click", onClickNotPreference);
     imgButton.addEventListener("click", onClickPreference);
 
@@ -87,7 +87,7 @@ function onClickPreference(event) {
 
     favorite.querySelector("h4.details").classList.add("hidden");
     //changing the button and the listener before the shifting
-    imgButton.src = "img/outline_thumb_down_grey_24dp.png";
+    imgButton.src = "img/buttons/outline_thumb_down_grey_24dp.png";
     imgButton.removeEventListener("click", onClickPreference);
     imgButton.addEventListener("click", onClickNotPreference);
 
@@ -192,7 +192,7 @@ function fetchPrefs(option) {
 
     // API -> save and load a coockie of favorite customer point
     //fixme fare porting delle fetch
-    fetch("http://localhost/HM_1/favorites_customer_point.php?" + params.toString())
+    fetch("favorites_customer_point?" + params.toString())
         .then(repsonse => repsonse.json()).then(json => {
             //console.log(json);
             const prefs = json;
@@ -213,7 +213,7 @@ function isPreferred(favorite) {
 
     favorite.querySelector("h4.details").classList.add("hidden");
     //changing the button and the listener before the shifting
-    imgButton.src = "img/buttons/outline_thumb_down_grey_24dp.png";
+    imgButton.src = "img/buttons/baseline_thumb_up_grey_24dp.png";
     imgButton.removeEventListener("click", onClickPreference);
     imgButton.addEventListener("click", onClickNotPreference);
 
