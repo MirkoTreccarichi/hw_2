@@ -4,7 +4,7 @@ namespace App\models;
 use Illuminate\Database\Eloquent\Model;
 
 class Punto_vendita extends Model{
-    protected $table = 'cliente';
+    protected $table = 'punto_vendita';
     public $timestamps = false;
 
     /**
