@@ -6,8 +6,8 @@ div.titleproductContainer {
 }
 
 .productContainer img {
-    width: inherit;
-    height: 200px;
+    width: auto;
+    height: 180px;
 }
 
 .titleproductContainer img {
@@ -17,31 +17,15 @@ div.titleproductContainer {
 }
 
 div.productContainer {
-    margin: 20px;
-    width: auto;
+    margin: 30px;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hidden {
     display: none;
-}
-
-.poster h1,
-.poster h2,
-.poster h3,
-.poster h4,
-.poster h5 {
-    font-style: italic;
-    color: #11656b;
-}
-
-.selected {
-    display: none;
-}
-
-.grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
 }
 
 li {
