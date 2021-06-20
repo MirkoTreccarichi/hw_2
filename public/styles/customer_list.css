@@ -1,0 +1,49 @@
+/*!* CSS of the new section "poster" *!*/
+div.titleproductContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productContainer img {
+    width: inherit;
+    height: 200px;
+}
+
+.titleproductContainer img {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+div.productContainer {
+    margin: 20px;
+    width: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.poster h1,
+.poster h2,
+.poster h3,
+.poster h4,
+.poster h5 {
+    font-style: italic;
+    color: #11656b;
+}
+
+.selected {
+    display: none;
+}
+
+.grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+li {
+    line-height: 2;
+}
