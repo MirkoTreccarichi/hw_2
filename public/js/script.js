@@ -36,7 +36,8 @@ function inizialize(json, prefs) {
             img.classList.add("city");
             clickableText.classList.add("details");
             address.classList.add("hidden");
-            clickableTextClose.classList.add("hidden")
+            clickableTextClose.classList.add("hidden");
+            clickableTextClose.classList.add("details");
 
             //constraction of the elements conteiner
 
@@ -191,15 +192,15 @@ function fetchPrefs(option) {
     }
 
     // API -> save and load a coockie of favorite customer point
-    //fixme fare porting delle fetch
     fetch("favorites_customer_point?" + params.toString())
         .then(repsonse => repsonse.json()).then(json => {
             //console.log(json);
             const prefs = json;
             if (!option)
             //API -> load info about customer point
-                fetch("http://localhost/HM_1/content.php").then(response => response.json()).then(json => {
+                fetch("load_customer_point").then(response => response.json()).then(json => {
                 console.log(json);
+                //fixme cambiare il path delle immagini per l'HW2
                 inizialize(json, prefs);
             });
         });
