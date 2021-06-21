@@ -30,7 +30,7 @@ class Lista extends Pivot {
      * @var array
      */
     protected $fillable = [
-        'quantita_prodotto'
+        'quantita_prodotto','id_cliente','codice_prodotto'
     ];
 
 

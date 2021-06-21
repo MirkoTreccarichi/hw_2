@@ -18,8 +18,6 @@
         <section class="poster">
 
             <h1> <a href="{{route('list')}}">Fai la lista , ritira dopo ! </a> </h1>
-{{--            todo view lista prodotti--}}
-
 
         </section>
 
