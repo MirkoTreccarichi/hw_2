@@ -1,5 +1,3 @@
-// fixme
-
 function inizialize(json, chs) {
 
     //inizialize contents
