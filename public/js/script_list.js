@@ -74,7 +74,7 @@ function onClickNotChoosed(event) {
     const imgButton = favorite.querySelector("img.button");
 
     //changing the button and the listener before the shifting
-    imgButton.src = "img/baseline_thumb_up_grey_24dp.png"
+    imgButton.src = "img/prodotti/outline_shopping_cart_empty_48dp.png";
     imgButton.removeEventListener("click", onClickNotChoosed);
     imgButton.addEventListener("click", onClickChoosed);
 
@@ -139,7 +139,7 @@ function search(event) {
 
     if (key)
     //search into the databse
-        fetch("http://localhost/HM_1/search_product.php?" + params.toString())
+        fetch("cerca_prodotti?" + params.toString())
         .then(promise => promise.json())
         .then(json => {
             for (const elem of elements) {
@@ -193,13 +193,13 @@ function fetchChoices(option) {
     }
 
     //retrieve choosen products
-    fetch("http://localhost/HM_1/product_list.php?" + params.toString())
+    fetch("carica_prodotti?" + params.toString())
         .then(repsonse => repsonse.json()).then(json => {
             //console.log(json);
             const prods = json;
             if (!option)
             //fetch products info from db
-                fetch("http://localhost/HM_1/product.php").then(response => response.json()).then(json => {
+                fetch("carica_prodotti").then(response => response.json()).then(json => {
                 console.log(json);
                 inizialize(json, prods);
             });
@@ -231,13 +231,11 @@ function save(event) {
 
     const params = new URLSearchParams();
 
-    let i = 0;
-
     for (const element of productInList) {
         params.append("codice_prodotto", element.dataset.code);
         params.append("quantita", element.querySelector("input").value);
 
-        fetch("save_lista.php?" + params.toString())
+        fetch("salva_lista?" + params.toString())
             .then(response => response.json())
             .then(json => {
                 if (!json)
@@ -248,8 +246,8 @@ function save(event) {
 
     }
 
-
-    fetch("http://localhost/HM_1/product_list.php?prodotto0=null");
+    //porting a laravel
+    fetch("lista_prodotti");
 
 
 }
