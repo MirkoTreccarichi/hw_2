@@ -21,14 +21,18 @@
 
         <h1>Pensaci oggi ritira domani !<a href="{{route('customer_area')}}">Oppure torna indietro</a></h1>
 
-        <h3>La tua lista</h3>
-        <ul class="lista">
-        @foreach($products as $prod)
-                <li>
-                    {{$prod['nome'].' '.$prod['produttore'].' X '.$prod['quantita_prodotto']}}
-                </li>
-            @endforeach
+        <div class="list @if(!isset($products)) hidden @endif">
+            <h3>La tua lista <img src="img/buttons/round_delete_grey_24dp.png" alt="" class="button"></h3>
+            <ul class="lista">
+            @foreach($products as $prod)
+                    <li value="{{$prod['codice']}}">
+    {{--                    todo implementare meccanismo per rimozione della lista--}}
+                        {{$prod['nome'].' '.$prod['produttore'].' X '.$prod['quantita_prodotto']}}
+                    </li>
+                @endforeach
         </ul>
+        </div>
+
         <hr>
 
         <div class="lists hidden">
