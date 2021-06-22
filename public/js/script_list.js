@@ -145,7 +145,8 @@ function search(event) {
                     elem.classList.add("hidden");
                 else
                     for (const res of json) {
-                        if (elem.dataset.code !== res[0])
+                        //fixme il codice non può essere inviato
+                        if (elem.dataset.code !== res['0'])
                             elem.classList.add("hidden");
                         else
                         if (elem.classList.contains("hidden")) {
