@@ -31,3 +31,8 @@ div.productContainer {
 li {
     line-height: 2;
 }
+
+.list h3{
+    display: flex;
+    justify-content: center;
+}
