@@ -25,7 +25,7 @@ div.productContainer {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 li {
