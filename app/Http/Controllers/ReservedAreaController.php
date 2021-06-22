@@ -43,20 +43,22 @@ class ReservedAreaController
         return Json::encode(Prodotto::where('nome','like','%'.$request->query('query').'%')->get());
     }
 
-    function loadProducts(): array
+    function loadProducts(): string
     {
-        return ListController::loadProductsList_();
+        $prodotti = Prodotto::all();
+        $products = array();
+        foreach ($prodotti as $prod) {
+            array_push($products,
+                array('code' => $prod->codice,'producer' =>$prod->produttore,'price'=>$prod->prezzo,
+                    'name'=>$prod->nome,'src' =>  $prod->src));
+        }
+
+        return Json::encode($products);
     }
 
     function saveList(Request $request): ?JsonResponse
     {
         return ListController::saveList_($request);
     }
-
-    function loadProductsList(): array
-    {
-        return ListController::loadProductsList_();
-    }
-
 
 }
