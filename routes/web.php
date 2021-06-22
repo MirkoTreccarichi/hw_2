@@ -1,7 +1,5 @@
 <?php
 
-use App\models\Punto_vendita;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,16 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-//todo inizializzare i controller
 
 Route::get('/home', function () {
     return view('guest');
-//    todo home controller
-});
-Route::get('api/news','ApiController@loadNews')->name('api/news');
-Route::get('api/comp/','ApiController@loadCompanies')->name('api/comp');
+})->name('home');
 
-//    todo  logController
+
+Route::get('api/news','ApiController@loadNews')->name('api/news');
+Route::get('api/comp','ApiController@loadCompanies')->name('api/comp');
+
 Route::get('/login', 'LoginController@login')->name('login');
 Route::post('/login', 'LoginController@checkLogin');
 
@@ -35,25 +32,24 @@ Route::get('/registrazione', 'RegisterController@page')->name('registrazione');
 Route::post('/registrazione', 'RegisterController@register')->name('registra');
 Route::post('/registrazione/email_free','RegisterController@emailFree')->name('emailFree');
 
-Route::get('/logout', 'LoginController@logout');
+Route::get('/logout', 'LoginController@logout')->name('logout');
 
-Route::get('/lista_cliente', null
-    //todo customer controller
-);
+Route::get('/lista_cliente','ReservedAreaController@customerList')->name('list');
+Route::get('/lista_prodotti','ReservedAreaController@productList');
+Route::get('/cerca_prodotti','ReservedAreaController@searchProduct');
+Route::get('/carica_prodotti','ReservedAreaController@loadProducts');
+Route::get('/salva_lista','ReservedAreaController@saveList');
 
-Route::get('/area_riservata', null
-);
+Route::get('/favorites_customer_point','CustomerController@favoriteCustomerPoint');
+
+Route::get('/load_customer_point','ReservedAreaController@loadCustomerPoint');
+
+Route::get('/area_riservata', 'ReservedAreaController@reservedArea')->name('customer_area');
 
 Route::get('/test', function () {
-       /* foreach (Punto_vendita::all() as $p) {
-            echo $p;
-        }
-        echo env('APIKEY_NEWSAPI');
-        echo env('APIKEY_FINNHUB');*/
-        $data = Http::get(env('ENDPOINT_FINNHUB'), [
-            'symbol' => 'JNJ',
-            'token' => env('APIKEY_FINNHUB')
-        ]);
-        echo $data;
+
+ $prodotto = \App\models\Prodotto::where('codice',0)->first();
+ return $prodotto->produttore;
+
     }
 );
