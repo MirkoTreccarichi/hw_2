@@ -25,7 +25,7 @@
             <h3>La tua lista <img src="img/buttons/round_delete_grey_24dp.png" alt="" class="button"></h3>
             <ul class="lista">
             @foreach($products as $prod)
-                    <li value="{{$prod['codice']}}">
+                    <li data-code="{{$prod['codice']}}">
     {{--                    todo implementare meccanismo per rimozione della lista--}}
                         {{$prod['nome'].' '.$prod['produttore'].' X '.$prod['quantita_prodotto']}}
                     </li>
@@ -35,13 +35,6 @@
 
         <hr>
 
-        <div class="lists hidden">
-            <h3>Le tue liste</h3>
-
-            <div class="grid">
-
-            </div>
-        </div>
 
 
         <div class="choosen hidden">
