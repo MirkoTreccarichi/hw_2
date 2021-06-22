@@ -43,7 +43,7 @@ class ReservedAreaController
         return Json::encode(Prodotto::where('nome','like','%'.$request->query('query').'%')->get());
     }
 
-    function loadProducts(): string
+    function loadProducts(): string //fixme refactor , caricare i prodotti in un array a partire da una collection
     {
         $prodotti = Prodotto::all();
         $products = array();
