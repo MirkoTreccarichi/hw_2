@@ -9,6 +9,13 @@ class Prodotto extends Model{
 
 
     /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'codice';
+
+    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
@@ -30,8 +37,11 @@ class Prodotto extends Model{
      * The roles that belong to the user.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function lista()
+    public function cliente()
     {
-        return $this->belongsToMany(Cliente::class);
+        return $this->belongsToMany('App\models\Cliente',
+            'App\models\Lista','codice_prodotto',
+            'id_cliente','codice','id')
+            ->using('App\models\Lista');
     }
 }

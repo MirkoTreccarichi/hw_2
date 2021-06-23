@@ -29,12 +29,11 @@ class Cliente extends Model{
      * The roles that belong to the user.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function lista()
+    public function Prodotto()
     {
-
-        /*return $this->belongsToMany(Prodotto::class,
-            "lista","id_cliente",
-            "codice_prodotto")->withPivot("quantita_prodotto");*/
-        return $this->belongsToMany(Prodotto::class)->using(Lista::class);
+        return $this->belongsToMany('App\models\Prodotto',
+            'App\models\Lista','id_cliente',
+            'codice_prodotto','id','codice')
+            ->using('App\models\Lista');
     }
 }
