@@ -1,5 +1,3 @@
-// fixme
-
 function inizialize(json, prefs) {
         //inizialize contents
         const gridContainer = document.querySelector(".choices .grid")
@@ -200,7 +198,6 @@ function fetchPrefs(option) {
             //API -> load info about customer point
                 fetch("load_customer_point").then(response => response.json()).then(json => {
                 console.log(json);
-                //fixme cambiare il path delle immagini per l'HW2
                 inizialize(json, prefs);
             });
         });

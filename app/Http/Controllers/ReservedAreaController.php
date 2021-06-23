@@ -58,7 +58,7 @@ class ReservedAreaController
         return $products;
     }
 
-    function loadProductsAll(): string //fixme refactor , caricare i prodotti in un array a partire da una collection
+    function loadProductsAll(): string
     {
         $prodotti = Prodotto::all();
 

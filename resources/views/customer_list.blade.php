@@ -21,8 +21,8 @@
 
         <h1>Pensaci oggi ritira domani !<a href="{{route('customer_area')}}">Oppure torna indietro</a></h1>
 
-        <div class="list @if(!isset($products)) hidden @endif">
-            <h3>La tua lista <img src="img/buttons/round_delete_grey_24dp.png" alt="" class="button"></h3>
+        <div class="list @if(!isset($products[0])) hidden @endif">
+            <h3>La tua lista <img src="img/buttons/round_delete_grey_24dp.png" alt="" class="button trashcan"></h3>
             <ul class="lista">
             @foreach($products as $prod)
                     <li data-code="{{$prod['codice']}}">

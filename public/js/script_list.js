@@ -145,16 +145,18 @@ function search(event) {
                     elem.classList.add("hidden");
                 else
                     for (const res of json) {
-                        //fixme il codice non può essere inviato
-                        if (elem.dataset.code !== res['0'])
+                        if (elem.dataset.code !== res['code'])
                             elem.classList.add("hidden");
                         else
                         if (elem.classList.contains("hidden")) {
                             elem.classList.remove("hidden");
                             break;
                         }
+                        else
+                            break;
 
                     }
+
             }
         })
     else
@@ -163,6 +165,18 @@ function search(event) {
                 elem.classList.remove("hidden");
         }
 
+}
+
+
+function deleteList(event){
+    const elements = document.querySelectorAll('ul');
+    for (const element of elements) {
+        element.remove();
+    }
+
+    fetch('elimina_lista');
+
+    document.querySelector('div.list').classList.add('hidden');
 }
 
 //assignament of the event listener to the HTML-input element
@@ -222,6 +236,7 @@ fetchChoices();
 
 //assignament of the event listener to the HTML-input element
 document.querySelector("input").addEventListener("click", save);
+document.querySelector("img.trashcan").addEventListener("click", deleteList);
 
 //save the user list
 function save(event) {

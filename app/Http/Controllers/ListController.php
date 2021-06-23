@@ -4,7 +4,6 @@
 namespace App\Http\Controllers;
 
 
-use App\models\Cliente;
 use App\models\Lista;
 use App\models\Prodotto;
 use Illuminate\Http\JsonResponse;
@@ -87,7 +86,7 @@ class ListController extends Controller
         return $list->all();
     }
 
-    static function deleteList(Request $request){
-        return Cliente::find($request->query('id'))->prodotto()->delete();
+    static function deleteList(){
+        return Lista::where('id_cliente',session('user_id'))->delete();
     }
 }
