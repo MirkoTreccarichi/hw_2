@@ -22,11 +22,10 @@
         <h1>Pensaci oggi ritira domani !<a href="{{route('customer_area')}}">Oppure torna indietro</a></h1>
 
         <div class="list @if(!isset($products[0])) hidden @endif">
-            <h3>La tua lista <img src="img/buttons/round_delete_grey_24dp.png" alt="" class="button trashcan"></h3>
+            <h3>La tua lista <img src="{{asset('img/buttons/round_delete_grey_24dp.png')}}" alt="" class="button trashcan"></h3>
             <ul class="lista">
             @foreach($products as $prod)
                     <li data-code="{{$prod['codice']}}">
-    {{--                    todo implementare meccanismo per rimozione della lista--}}
                         {{$prod['nome'].' '.$prod['produttore'].' X '.$prod['quantita_prodotto']}}
                     </li>
                 @endforeach
@@ -39,7 +38,7 @@
 
         <div class="choosen hidden">
             <h3>Le tue scelte</h3>
-            <input type="button" value="Salva">
+            <input type="button" value="Salva" class="save">
             <div class="grid">
 
             </div>
