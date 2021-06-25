@@ -211,7 +211,7 @@ function isPreferred(favorite) {
 
     favorite.querySelector("h4.details").classList.add("hidden");
     //changing the button and the listener before the shifting
-    imgButton.src = "img/buttons/baseline_thumb_up_grey_24dp.png";
+    imgButton.src = "img/buttons/outline_thumb_down_grey_24dp.png";
     imgButton.removeEventListener("click", onClickPreference);
     imgButton.addEventListener("click", onClickNotPreference);
 
