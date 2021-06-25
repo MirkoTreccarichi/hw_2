@@ -42,6 +42,6 @@ class Prodotto extends Model{
         return $this->belongsToMany('App\models\Cliente',
             'App\models\Lista','codice_prodotto',
             'id_cliente','codice','id')
-            ->using('App\models\Lista');
+        ->withPivot('quantita_prodotto');
     }
 }
