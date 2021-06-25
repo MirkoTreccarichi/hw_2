@@ -5,7 +5,7 @@ function checkEmail(event) {
     //EMAIL CONTROL
     if (!validateEmail(email.value)) {
         const error = "email non valida !";
-        errors.push(error);
+        errors.add(error);
         setError(email);
     }
 
@@ -15,7 +15,7 @@ function checkEmail(event) {
     }).then(promise => promise.json()).then(json => {
         if (!json) {
             const error = "email già presente !";
-            errors.push(error);
+            errors.add(error);
             setError(email);
         }
     });
@@ -25,7 +25,7 @@ function checkPassword(event) {
     //PASSWORD CONTROL
     if (!validatePassword(password.value)) {
         const error = "la password non è di un formato corretto";
-        errors.push(error);
+        errors.add(error);
         setError(password);
     }
 
@@ -35,7 +35,7 @@ function checkConfirmPassoword(event) {
     //CONFIRM PASSWORD CONTROL
     if (password.value !== confirmPassoword.value) {
         const error = "le passoword non sono uguali";
-        errors.push(error);
+        errors.add(error);
         setError(confirmPassoword);
     }
 }
@@ -64,7 +64,7 @@ function checkValues(event) {
     for (element of elementList) {
         if (element.value === "") {
             const error = "L'elemento " + element.name + " è vuoto !";
-            errors.push(error);
+            errors.add(error);
             setError(element);
         }
     }
@@ -100,7 +100,7 @@ function checkForm(event) {
 }
 
 //CONSTANTS AND VARIABLES
-let errors = Array();
+let errors = new Set;
 
 //EVENT LISTENERS
 const email = document.querySelector(".email input");
