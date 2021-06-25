@@ -13,14 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','HomeController@home')->name('home');
+Route::get('/home','HomeController@home')->name('home');
 
-Route::get('/home', function () {
-    return view('guest');
-})->name('home');
-
+Route::get('/welcome','HomeController@welcome');
 
 Route::get('api/news','ApiController@loadNews')->name('api/news');
 Route::get('api/comp','ApiController@loadCompanies')->name('api/comp');
@@ -46,3 +42,9 @@ Route::get('/favorites_customer_point','CustomerController@favoriteCustomerPoint
 Route::get('/load_customer_point','ReservedAreaController@loadCustomerPoint');
 
 Route::get('/area_riservata', 'ReservedAreaController@reservedArea')->name('customer_area');
+
+//fixme sistemare il vettore degli errori nella registrazione
+//todo inserire un tasto per risalire in cima alla home
+//fixme settare altezza fissa nel product contanier
+//fixme aggiustare stile tasto salva nella lista cliente e degli input
+//fixme sistemare immagine di button tra i tuoi preferiti di area riservata
