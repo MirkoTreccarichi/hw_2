@@ -91,4 +91,9 @@ div#promo {
     margin: 0.5em;
 }
 
-
+input[type="search"] {
+    border: 2px solid #11656b;
+    border-radius: 16px;
+    position: relative;
+    bottom: 2px;
+}

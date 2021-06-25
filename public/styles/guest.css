@@ -1,13 +1,14 @@
     section#apiNews div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 500px;
-    margin: 10px;
-    padding: 5px;
-    text-align: justify;
-    border-radius: 5px;
-    box-shadow: 10px 10px 20px 0 rgb(0 0 0 / 30%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 500px;
+        margin: 15px;
+        padding: 15px;
+        text-align: justify;
+        border-radius: 5px;
+        box-shadow: 10px 10px 20px 0 rgb(0 0 0 / 30%);
+        height: 400px;
 }
 
 section#apiNews div img {
@@ -84,6 +85,10 @@ div#promo {
 header {
     height: 500px;
     background-image: url(../img/header/network-background.jpg);
+}
+
+section.grid a {
+    text-transform: uppercase;
 }
 
 

@@ -7,6 +7,8 @@ body {
 
 a {
     cursor: pointer;
+    font-style: oblique;
+    color: #155e63;
 }
 
 nav {
@@ -34,6 +36,9 @@ footer {
     border-bottom: 4px solid #11656b;
     text-transform: uppercase;
     color: white;
+    position: relative;
+    left: 0;
+    bottom: 0;
 }
 
 section {
@@ -79,15 +84,15 @@ footer div {
 }
 
 .login {
-    background-color: rgba(167, 165, 165, 0.7);
+    background-color: #11656b;
     border-radius: 1em;
     padding: 0.4em 0.3em;
     color: white;
 }
 
-a.button:hover {
+a.login:hover {
     color: #11656b;
-    background-color: rgb(167, 165, 165);
+    background-color: white;
 }
 
 .link a {
@@ -95,8 +100,9 @@ a.button:hover {
     font-size: 1.3em;
     text-transform: uppercase;
     font-weight: bold;
-    color: unset;
     text-decoration: unset;
+    font-style: unset;
+    padding: 10px;
 }
 
 #menu div {
