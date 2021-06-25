@@ -71,6 +71,7 @@ class ListController extends Controller
         $list = collect();
 
         $listinfo = Lista::all()->where('id_cliente',session('user_id'));
+        //fixme aggiustare
 
         foreach ($listinfo as $item){
             $prod = Prodotto::where('codice',$item->codice_prodotto)->first();
@@ -88,5 +89,6 @@ class ListController extends Controller
 
     static function deleteList(){
         return Lista::where('id_cliente',session('user_id'))->delete();
+        //fixme da aggiustare ?
     }
 }
