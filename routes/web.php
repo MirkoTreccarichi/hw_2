@@ -44,5 +44,4 @@ Route::get('/load_customer_point','ReservedAreaController@loadCustomerPoint');
 Route::get('/area_riservata', 'ReservedAreaController@reservedArea')->name('customer_area');
 
 //todo inserire un tasto per risalire in cima alla home
-//fixme aggiustare stile tasto salva nella lista cliente e degli input
-//fixme sistemare immagine di button tra i tuoi preferiti di area riservata
+//fixme aggiustare l'accesso alla lista
