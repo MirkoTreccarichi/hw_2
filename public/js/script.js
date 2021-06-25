@@ -1,11 +1,11 @@
-function inizialize(json, prefs) {
-        //inizialize contents
+function initialize(json, prefs) {
+        //initialize contents
         const gridContainer = document.querySelector(".choices .grid")
 
         const affiliates = Object.entries(json);
-        let preferencies
+        let preferences
         if (prefs !== null)
-            preferencies = Object.entries(prefs);
+            preferences = Object.entries(prefs);
 
         console.log(prefs);
         for (let affiliate of affiliates) {
@@ -37,7 +37,7 @@ function inizialize(json, prefs) {
             clickableTextClose.classList.add("hidden");
             clickableTextClose.classList.add("details");
 
-            //constraction of the elements conteiner
+            //construction of the elements container
 
             title.appendChild(city);
             title.appendChild(button_);
@@ -55,8 +55,8 @@ function inizialize(json, prefs) {
             gridContainer.appendChild(container);
             console.log(container);
 
-            if (preferencies)
-                preferencies.forEach(function(item, index, array) {
+            if (preferences)
+                preferences.forEach(function(item, index, array) {
                     if (item[1] === city.textContent)
                         isPreferred(container);
                 })
@@ -97,9 +97,9 @@ function onClickPreference(event) {
 function oncClickText(event) {
     //show the address(description)
     event.currentTarget.classList.add("hidden");
-    const contanier = event.currentTarget.parentElement;
-    contanier.querySelector("p").classList.remove("hidden");
-    contanier.querySelector("h5").classList.remove("hidden");
+    const container = event.currentTarget.parentElement;
+    container.querySelector("p").classList.remove("hidden");
+    container.querySelector("h5").classList.remove("hidden");
 }
 
 function addFavorite(favorite) {
@@ -136,10 +136,10 @@ function removeFromFavorite(favorite) {
 function onClickClose(event) {
     //close the address(description)
     event.currentTarget.classList.add("hidden");
-    const contanier = event.currentTarget.parentElement;
-    contanier.querySelector("p").classList.add("hidden");
-    contanier.querySelector("h5").classList.add("hidden");
-    contanier.querySelector("h4").classList.remove("hidden");
+    const container = event.currentTarget.parentElement;
+    container.querySelector("p").classList.add("hidden");
+    container.querySelector("h5").classList.add("hidden");
+    container.querySelector("h4").classList.remove("hidden");
 }
 
 
@@ -153,7 +153,7 @@ function search(event) {
 
     //if they not match , hides the element, else it's showed up
     for (let elem of elements) {
-        if (elem.textContent.toLowerCase().search(key) == -1)
+        if (elem.textContent.toLowerCase().search(key) === -1)
             elem.parentElement.parentElement.classList.add("hidden");
         else
         if (elem.parentElement.parentElement.classList.contains("hidden"))
@@ -163,13 +163,13 @@ function search(event) {
 
 }
 
-//assignament of the event listener to the HTML-input element
+//assignment of the event listener to the HTML-input element
 document.querySelector("input").addEventListener("keyup", search);
 
 //favorites-counter variable
 let favoritesElements = 0;
 
-//inizializetion of the poster section
+//initialization of the poster section
 
 
 function fetchPrefs(option) {
@@ -180,7 +180,7 @@ function fetchPrefs(option) {
 
     if (option === "update") {
         let i = 0;
-        if (favoritesElements.length != 0)
+        if (favoritesElements.length !== 0)
             for (const element of favoritesElements)
                 params.append("citta" + i++, element.textContent);
         else
@@ -189,16 +189,16 @@ function fetchPrefs(option) {
 
     }
 
-    // API -> save and load a coockie of favorite customer point
+    // API -> save and load a cookie of favorite customer point
     fetch("favorites_customer_point?" + params.toString())
-        .then(repsonse => repsonse.json()).then(json => {
+        .then(response => response.json()).then(json => {
             //console.log(json);
             const prefs = json;
             if (!option)
             //API -> load info about customer point
                 fetch("load_customer_point").then(response => response.json()).then(json => {
                 console.log(json);
-                inizialize(json, prefs);
+                initialize(json, prefs);
             });
         });
 
