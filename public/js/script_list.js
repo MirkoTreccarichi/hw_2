@@ -206,7 +206,7 @@ function fetchChoices(option) {
     }
 
     //retrieve chosen products
-    fetch("carica_prodotti?" + params.toString())
+    fetch("lista_prodotti?" + params.toString())
         .then(response => response.json()).then(json => {
             //console.log(json);
             const prods = json;
