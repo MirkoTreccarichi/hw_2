@@ -18,10 +18,11 @@ div.titleproductContainer {
 
 div.productContainer {
     margin: 30px;
-    width: 220px;
+    width: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 350px;
 }
 
 .hidden {
