@@ -1,6 +1,6 @@
-function inizialize(json, chs) {
+function initialize(json, chs) {
 
-    //inizialize contents
+    //initialize contents
     const gridContainer = document.querySelector(".choices .grid")
 
     const products = Object.entries(json);
@@ -39,7 +39,7 @@ function inizialize(json, chs) {
         title.classList.add("titleproductContainer");
         button_.classList.add("button");
 
-        //constraction of the elements conteiner
+        //construction of the elements container
 
         title.appendChild(name);
         title.appendChild(button_);
@@ -95,7 +95,7 @@ function onClickChoosed(event) {
 
 function addChoosed(favorite) {
     //the function change the position of the element selected, from the choices
-    //  to the choosen
+    //  to the chosen
     const divFav = document.querySelector("div.choosen");
 
     if (productInList === 0)
@@ -108,7 +108,7 @@ function addChoosed(favorite) {
 }
 
 function removeFromChoosed(favorite) {
-    //the function change the position of the element selected, from the choosen
+    //the function change the position of the element selected, from the chosen
     //  to the choices
     const divFav = document.querySelector("div.choosen");
     const divChoices = document.querySelector("div.choices .grid");
@@ -118,7 +118,7 @@ function removeFromChoosed(favorite) {
     //change the Favorite-counter value
     productInList -= 1;
 
-    //control the amount of the choosen
+    //control the amount of the chosen
     if (productInList === 0)
         divFav.classList.add("hidden");
     fetchChoices("update");
@@ -136,7 +136,7 @@ function search(event) {
     params.append("query", key);
 
     if (key)
-    //search into the databse
+    //search into the database
         fetch("cerca_prodotti?" + params.toString())
         .then(promise => promise.json())
         .then(json => {
@@ -179,13 +179,13 @@ function deleteList(event){
     document.querySelector('div.list').classList.add('hidden');
 }
 
-//assignament of the event listener to the HTML-input element
+//assignment of the event listener to the HTML-input element
 document.querySelector(".choices input").addEventListener("change", search);
 
-//choosen-counter variable
+//chosen-counter variable
 let productInList = 0;
 
-//inizializetion of the poster section
+//initialization of the poster section
 
 
 function fetchChoices(option) {
@@ -193,10 +193,10 @@ function fetchChoices(option) {
 
     const params = new URLSearchParams();
 
-    //get the choosen products
+    //get the chosen products
     if (option === "update") {
         let i = 0;
-        if (productInList.length != 0)
+        if (productInList.length !== 0)
             for (const element of productInList)
                 params.append("prodotto" + i++, element.dataset.code);
         else
@@ -205,16 +205,16 @@ function fetchChoices(option) {
 
     }
 
-    //retrieve choosen products
+    //retrieve chosen products
     fetch("carica_prodotti?" + params.toString())
-        .then(repsonse => repsonse.json()).then(json => {
+        .then(response => response.json()).then(json => {
             //console.log(json);
             const prods = json;
             if (!option)
             //fetch products info from db
                 fetch("carica_prodotti").then(response => response.json()).then(json => {
                 console.log(json);
-                inizialize(json, prods);
+                initialize(json, prods);
             });
         });
 
@@ -231,10 +231,10 @@ function isChoosed(favorite) {
     addChoosed(favorite);
 }
 
-//fetch products and coockie
+//fetch products and cookie
 fetchChoices();
 
-//assignament of the event listener to the HTML-input element
+//assignment of the event listener to the HTML-input element
 document.querySelector("input").addEventListener("click", save);
 document.querySelector("img.trashcan").addEventListener("click", deleteList);
 
