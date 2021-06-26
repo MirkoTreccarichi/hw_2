@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
+use Psy\Util\Json;
 
 class ApiController extends Controller
 {
@@ -17,12 +18,13 @@ class ApiController extends Controller
                 'token' => env('APIKEY_FINNHUB')
             ]);
         } else
-            $data = json_encode("errore");
+            $data = Json::encode("errore");
 
         return $data;
     }
 
-    function loadNews(){
+    function loadNews(): \Illuminate\Http\Client\Response
+    {
         return Http::get(env('ENDPOINT_NEWSAPI'),[
             'q'=>'slow food',
             'from'=>now(),
