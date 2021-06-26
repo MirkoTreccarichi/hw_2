@@ -90,6 +90,10 @@ footer div {
     color: white;
 }
 
+a.login{
+    transition: ease 500ms;
+}
+
 a.login:hover {
     color: #11656b;
     background-color: white;
