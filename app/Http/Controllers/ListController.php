@@ -3,22 +3,21 @@
 
 namespace App\Http\Controllers;
 
-
-use App\models\Lista;
-use App\models\Prodotto;
+use App\models\Cliente;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Psy\Util\Json;
 
 class ListController extends Controller
 {
-    static function customerList_(){
+    static function _customerList(){
         if (LoginController::isLogged())
-            return view('customer_list')->with('products',self::loadProductsList_());
+            return view('customer_list')->with('products',self::_loadProductsList());
         return redirect(route('login'));
     }
 
-    static function productList_(Request $request){
+    static function _productList(Request $request){
 
         $response = new JsonResponse();
 
@@ -27,7 +26,7 @@ class ListController extends Controller
                 return $response->withCookie('list',null);
             }
 
-            return  $request->cookie('list');
+            return  $response->setData($request->cookie('list'));
         }
 
         if (!$request->has('prodotto0')){
@@ -47,19 +46,18 @@ class ListController extends Controller
 
     }
 
-    static function saveList_(Request $request){
+    static function _saveList(Request $request): ?JsonResponse
+    {
 
         $response = new JsonResponse();
 
         if(!LoginController::isLogged())
             return null;
 
-        $lista = new Lista();
-        $lista->quantita_prodotto = $request->query('quantita');
-        $lista->codice_prodotto = $request->query('codice_prodotto');
-        $lista->id_cliente = session('user_id');
+        Cliente::find(session('user_id'))->prodotto()
+            ->attach($request['codice_prodotto'], ['quantita_prodotto' => $request['quantita']]);
 
-        $lista->save();
+        $lista = self::_loadProductsList();
 
         $response->setData($lista);
         $response->withCookie('list',null);
@@ -67,28 +65,23 @@ class ListController extends Controller
         return $response;
     }
 
-    static function loadProductsList_(){
-        $list = collect();
+    static function _loadProductsList(): array
+    {
+        $list = new Collection;
 
-        $listinfo = Lista::all()->where('id_cliente',session('user_id'));
-        //fixme aggiustare
-
-        foreach ($listinfo as $item){
-            $prod = Prodotto::where('codice',$item->codice_prodotto)->first();
-
+        foreach (Cliente::find(session('user_id'))->prodotto as $item){
             $list->push([
-                'nome' => $prod->nome,
-                'produttore' =>$prod->produttore,
-                'quantita_prodotto' =>$item->quantita_prodotto,
-                'codice' => $prod->codice
+                'nome'=> $item->nome,
+                'produttore' => $item->produttore,
+                'quantita_prodotto' => $item->pivot->quantita_prodotto,
+                'codice' =>$item->codice
             ]);
         }
 
         return $list->all();
     }
 
-    static function deleteList(){
-        return Lista::where('id_cliente',session('user_id'))->delete();
-        //fixme da aggiustare ?
+    static function _deleteList(){
+        return Cliente::find(session('user_id'))->prodotto()->detach();
     }
 }

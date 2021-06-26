@@ -13,6 +13,7 @@ use Psy\Util\Json;
 
 class ReservedAreaController
 {
+    //fixme estendere lisController invece di importarlo
     function reservedArea(){
         if (LoginController::isLogged())
             return view('reserved_area');
@@ -32,11 +33,11 @@ class ReservedAreaController
     }
 
     function customerList(){
-        return ListController::customerList_();
+        return ListController::_customerList();
     }
 
     function productList(Request $request){
-        return ListController::productList_($request);
+        return ListController::_productList($request);
     }
 
     function searchProduct(Request $request): array
@@ -67,11 +68,11 @@ class ReservedAreaController
 
     function saveList(Request $request): ?JsonResponse
     {
-        return ListController::saveList_($request);
+        return ListController::_saveList($request);
     }
 
-    function deleteList(Request $request){
-        return ListController::deleteList($request);
+    function deleteList(){
+        return ListController::_deleteList();
     }
 
 }
