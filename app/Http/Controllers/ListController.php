@@ -11,13 +11,13 @@ use Psy\Util\Json;
 
 class ListController extends Controller
 {
-    static function _customerList(){
+    protected function _customerList(){
         if (LoginController::isLogged())
             return view('customer_list')->with('products',self::_loadProductsList());
         return redirect(route('login'));
     }
 
-    static function _productList(Request $request){
+    protected function _productList(Request $request){
 
         $response = new JsonResponse();
 
@@ -46,7 +46,7 @@ class ListController extends Controller
 
     }
 
-    static function _saveList(Request $request): ?JsonResponse
+    protected function _saveList(Request $request): ?JsonResponse
     {
 
         $response = new JsonResponse();
@@ -65,7 +65,7 @@ class ListController extends Controller
         return $response;
     }
 
-    static function _loadProductsList(): array
+    protected function _loadProductsList(): array
     {
         $list = new Collection;
 
@@ -81,7 +81,7 @@ class ListController extends Controller
         return $list->all();
     }
 
-    static function _deleteList(){
+    protected function _deleteList(){
         return Cliente::find(session('user_id'))->prodotto()->detach();
     }
 }

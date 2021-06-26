@@ -11,9 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Psy\Util\Json;
 
-class ReservedAreaController
+class ReservedAreaController extends ListController
 {
-    //fixme estendere lisController invece di importarlo
     function reservedArea(){
         if (LoginController::isLogged())
             return view('reserved_area');
@@ -33,11 +32,11 @@ class ReservedAreaController
     }
 
     function customerList(){
-        return ListController::_customerList();
+        return $this->_customerList();
     }
 
     function productList(Request $request){
-        return ListController::_productList($request);
+        return $this->_productList($request);
     }
 
     function searchProduct(Request $request): array
@@ -68,11 +67,11 @@ class ReservedAreaController
 
     function saveList(Request $request): ?JsonResponse
     {
-        return ListController::_saveList($request);
+        return $this->_saveList($request);
     }
 
     function deleteList(){
-        return ListController::_deleteList();
+        return $this->_deleteList();
     }
 
 }
