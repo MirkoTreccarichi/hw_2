@@ -76,20 +76,18 @@ function checkForm(event) {
     error_display.innerHTML = "";
     error_display.classList.add("hidden");
     checkValues(event);
-    if (errors.length !== 0) {
+    if(errors.size){
         event.preventDefault();
-        error_display.classList.remove("hidden");
-        for (let i = 0; i < errors.length; i++) {
-            const er = errors[i];
+        error_display.classList.remove('hidden');
+        for (const er of errors) {
             const element = document.createElement("p");
 
             element.textContent = er;
 
             error_display.append(element);
-
         }
 
-        errors = [];
+        errors.clear();
         return;
     }
 
