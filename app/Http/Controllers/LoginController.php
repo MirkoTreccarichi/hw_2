@@ -17,15 +17,15 @@ class LoginController extends Controller
         if(session('username'))
             return redirect('area_riservata');
         else
-            return view('login');
+            return view('login')->with('error');
     }
 
     function checkLogin(Request $request){
         $error = null;
-        if ($request->has('email') && $request->has('password')){
+        if ($request['email'] !== null && $request['password'] !== null){
             $utente = Cliente::where('email',$request['email'])->first();
 
-            if (password_verify($request['password'],$utente->password)){
+            if ($utente && password_verify($request['password'],$utente->password)){
                 session(['username' => $request['email'],'user_id'=>$utente->id ]);
                 return redirect(route('customer_area'));
             }
@@ -33,14 +33,16 @@ class LoginController extends Controller
             $error = "Username e/o password errati.";
         }
 
-        if (!$request->hasAny('email','password')){
+        if ($request['email'] === null || $request['password'] === null ){
             $error = "Inserisci username e password.";
 
         }
 
         //myemail/username : admin
         //mypassword : admin
-        return $error;
+        if (isset($error))
+            return view('login')->with('error',$error);
+        return null;
 
     }
     function logout(){

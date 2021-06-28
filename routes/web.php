@@ -43,5 +43,5 @@ Route::get('/load_customer_point','ReservedAreaController@loadCustomerPoint');
 
 Route::get('/area_riservata', 'ReservedAreaController@reservedArea')->name('customer_area');
 
-//todo inserire un tasto per risalire in cima alla home
-//fixme aggiustare l'accesso alla lista
+//todo non far visualizzare i prodotti che sono stati scelti in una lista
+

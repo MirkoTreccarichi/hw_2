@@ -28,5 +28,10 @@
             </div>
         </form>
         <div class="signup">Non hai un account ? <a href="{{route('registra')}}">Registrati !</a></div>
+        @if(isset($error))
+            <div class="error_display" >
+                    <p> {{$error}} </p>
+            </div>
+        @endif
     </section>
 @endsection
