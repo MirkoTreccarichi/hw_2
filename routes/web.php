@@ -43,5 +43,4 @@ Route::get('/load_customer_point','ReservedAreaController@loadCustomerPoint');
 
 Route::get('/area_riservata', 'ReservedAreaController@reservedArea')->name('customer_area');
 
-//todo non far visualizzare i prodotti che sono stati scelti in una lista
 
