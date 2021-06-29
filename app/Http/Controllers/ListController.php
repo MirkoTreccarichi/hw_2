@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 use App\models\Cliente;
+use http\Client;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -54,6 +55,8 @@ class ListController extends Controller
         if(!LoginController::isLogged())
             return null;
 
+        Cliente::find(session('user_id'))->prodotto()
+            ->detach($request['codice_prodotto']);
         Cliente::find(session('user_id'))->prodotto()
             ->attach($request['codice_prodotto'], ['quantita_prodotto' => $request['quantita']]);
 
