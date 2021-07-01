@@ -29,7 +29,7 @@ class ListController extends Controller
             return  $response->setData($request->cookie('list'));
         }
 
-        if (!$request->has('prodotto0')){
+        if (!$request['proodotto0']){
             if ($request->hasCookie('list')){
                 $response->cookie(cookie()->forever('list',null));
                 $response->setData(true);
