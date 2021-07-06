@@ -41,8 +41,7 @@ class ReservedAreaController extends ListController
 
     function searchProduct(Request $request): array
     {
-        $prodotti = Prodotto::where('nome','like','%'.$request->query().'%')->get();
-//        return Json::encode($this->loadProductsAll_($prodotti));
+        $prodotti = Prodotto::where('nome','like','%'.$request['query'].'%')->get();
         return $this->loadProducts_($prodotti);
     }
 
