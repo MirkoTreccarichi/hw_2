@@ -26,8 +26,8 @@ class ListController extends Controller
                 return $response->withCookie('list',null);
             }
 
-            $response->setData($request->cookie('list'));
-            return $response;
+            return $request->cookie('list');
+
         }
 //fixme da aggiustare
         if (!$request->has('prodotto0')){
