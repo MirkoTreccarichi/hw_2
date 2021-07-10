@@ -26,24 +26,24 @@ class ListController extends Controller
                 return $response->withCookie('list',null);
             }
 
-            return  $response->setData($request->cookie('list'));
+//            return  $response->setData($request->cookie('list'));
+            return $request->cookie('list');
         }
-
-        if (!$request['proodotto0']){
+//fixme da aggiustare
+        if (!$request->has('prodotto0')){
             if ($request->hasCookie('list')){
                 $response->cookie(cookie()->forever('list',null));
-                $response->setData(true);
+               // $response->setData(true);
                 return $response;
             }
         }
 
         $response->withCookie(cookie()->forever('list',
             Json::encode($request->query())));
-        $response->setData(true);
+        //$response->setData(true);
+        $response->setData($request->query());
 
         return $response;
-
-
     }
 
     protected function _saveList(Request $request): ?JsonResponse
