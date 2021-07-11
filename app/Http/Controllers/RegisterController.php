@@ -34,7 +34,8 @@ class RegisterController extends Controller
             'password'=>password_hash($request->input('password'),PASSWORD_BCRYPT)
         ]);
 
-        //fixme settare direttamente la sessione o fargli fare comunque il login ?
+        $utente = Cliente::where('email',$request['email'])->first();
+        session(['username' => $request['email'],'user_id'=>$utente->id ]);
         return redirect(route('customer_area'));
 
         //myemail/username : admin
