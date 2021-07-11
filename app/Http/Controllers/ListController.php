@@ -11,6 +11,8 @@ use Psy\Util\Json;
 
 class ListController extends Controller
 {
+    //fixme associare il cookie all'utente
+
     protected function _customerList(){
         if (LoginController::isLogged())
             return view('customer_list')->with('products',self::_loadProductsList());
@@ -18,7 +20,8 @@ class ListController extends Controller
     }
 
     protected function _productList(Request $request){
-
+    //todo da controllare
+       //fixme associare il cookie all'utente
         $response = new JsonResponse();
 
         if (empty($request->query())){
@@ -29,7 +32,6 @@ class ListController extends Controller
             return $request->cookie('list');
 
         }
-//fixme da aggiustare
         if (!$request->has('prodotto0')){
             if ($request->hasCookie('list')){
                 $response->cookie(cookie()->forever('list',null));
@@ -37,8 +39,11 @@ class ListController extends Controller
             }
         }
 
-        $response->withCookie(cookie()->forever('list',
-            Json::encode($request->query())));
+        $response->withCookie(
+            cookie()->forever('list',
+                Json::encode($request->query())
+            )
+        );
         $response->setData($request->query());
 
         return $response;
