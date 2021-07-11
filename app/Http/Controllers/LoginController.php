@@ -30,11 +30,11 @@ class LoginController extends Controller
                 return redirect(route('customer_area'));
             }
 
-            $error = "Username e/o password errati.";
+            $error = "Email e/o password errati.";
         }
 
         if ($request['email'] === null || $request['password'] === null ){
-            $error = "Inserisci username e password.";
+            $error = "Inserisci email e password.";
 
         }
 
