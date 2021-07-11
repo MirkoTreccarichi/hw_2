@@ -61,7 +61,15 @@
                <input type='submit' value="Registrati">
            </div>
        </form>
-       <div class="error_display hidden"></div>
+
+        @if(isset($error))
+            <div class="error_display" >
+                <p> {{$error}} </p>
+            </div>
+        @else
+            <div class="error_display hidden"></div>
+        @endif
+
        <div class="signup">Hai già un account ? <a href=" {{ route('login') }} ">Fai il login !</a></div>
 
     </section>
