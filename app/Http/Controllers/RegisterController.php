@@ -6,7 +6,6 @@ namespace App\Http\Controllers;
 
 use App\models\Cliente;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 use Psy\Util\Json;
 
 class RegisterController extends Controller
@@ -20,10 +19,12 @@ class RegisterController extends Controller
                     $error = "Inserisci email e password.";
         }
 
-        Http::post(route('emailFree'),['email',$request->input('email')]) ? : $error[] = "email già utilizzata";
+        if(Cliente::where('email',$request->input('email'))->exists()){
+            $error = "Email già presente !";
+        }
 
         if(isset($error))
-            return($error);
+            return view('signup')->with('error',$error);
 
         Cliente::create([
             'nome'=>$request->input('name'),
@@ -33,6 +34,7 @@ class RegisterController extends Controller
             'password'=>password_hash($request->input('password'),PASSWORD_BCRYPT)
         ]);
 
+        //fixme settare direttamente la sessione o fargli fare comunque il login ?
         return redirect(route('customer_area'));
 
         //myemail/username : admin
@@ -47,11 +49,8 @@ class RegisterController extends Controller
         if(!$request->input('email'))
             return false;
 
-        $cliente = Cliente::where('email',$request->input('email'))->first();
+        $exists = Cliente::where('email',$request->input('email'))->exists();
 
-        if($cliente !== null) {
-            return Json::encode(false);
-        }
-        return Json::encode(true);
+      return Json::encode($exists);
     }
 }
