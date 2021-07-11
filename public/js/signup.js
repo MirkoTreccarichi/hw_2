@@ -4,17 +4,22 @@
 function checkEmail(event) {
     //EMAIL CONTROL
     if (!validateEmail(email.value)) {
-        const error = "email non valida !";
+        const error = "Email non valida !";
         errors.add(error);
         setError(email);
+        return;
     }
+
+    const form = document.forms['registrazione'];
+    const token=document.querySelector('#csrf');
 
     fetch("http://localhost/HW_2/public/registrazione/email_free", {
         method: "post",
+        headers:{'X-CSRF-TOKEN': token.content},
         body: new FormData(signupForm)
     }).then(promise => promise.json()).then(json => {
-        if (!json) {
-            const error = "email già presente !";
+        if (json) {
+            const error = "Email già presente !";
             errors.add(error);
             setError(email);
         }
