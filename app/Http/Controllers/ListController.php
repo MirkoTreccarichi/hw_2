@@ -11,8 +11,6 @@ use Psy\Util\Json;
 
 class ListController extends Controller
 {
-    //fixme associare il cookie all'utente
-
     protected function _customerList(){
         if (LoginController::isLogged())
             return view('customer_list')->with('products',self::_loadProductsList());
@@ -20,29 +18,29 @@ class ListController extends Controller
     }
 
     protected function _productList(Request $request){
-    //todo da controllare
-       //fixme associare il cookie all'utente
         $response = new JsonResponse();
 
         if (empty($request->query())){
-            if (!$request->hasCookie('list')){
-                return $response->withCookie('list',null);
+            if (!$request->hasCookie(session('user_id').'list')){
+                return $response->withCookie(cookie()
+                    ->forever(session('user_id').'list',
+                        Json::encode(null)));
             }
 
-            return $request->cookie('list');
+            return $request->cookie(session('user_id').'list');
 
         }
         if (!$request->has('prodotto0')){
-            if ($request->hasCookie('list')){
-                $response->cookie(cookie()->forever('list',null));
+            if ($request->hasCookie(session('user_id').'list')){
+                $response->withCookie(cookie()->forever('list',null));
                 return $response;
             }
         }
 
-        $response->withCookie(
-            cookie()->forever('list',
-                Json::encode($request->query())
-            )
+        $response->withCookie(cookie()
+            ->forever(
+                session('user_id').'list',
+                Json::encode($request->query()))
         );
         $response->setData($request->query());
 
@@ -51,11 +49,7 @@ class ListController extends Controller
 
     protected function _saveList(Request $request): ?JsonResponse
     {
-
         $response = new JsonResponse();
-
-        if(!LoginController::isLogged())
-            return null;
 
         Cliente::find(session('user_id'))->prodotto()
             ->detach($request['codice_prodotto']);
@@ -65,9 +59,9 @@ class ListController extends Controller
         $lista = self::_loadProductsList();
 
         $response->setData($lista);
-        $response->withCookie('list',null);
-
-        return $response;
+        return $response->withCookie(cookie()
+            ->forever(session('user_id').'list',
+                Json::encode(null)));
     }
 
     protected function _loadProductsList(): array
