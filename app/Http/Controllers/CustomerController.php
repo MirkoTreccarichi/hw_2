@@ -24,7 +24,7 @@ class CustomerController extends Controller
         }
 
         if (!$request->has('citta0')){
-            if ($request->hasCookie('prefcities')){
+            if ($request->hasCookie(session('user_id').'prefcities')){
                 $response->withCookie(cookie()
                     ->forever(session('user_id').'prefcities',
                         Json::encode(null)));
