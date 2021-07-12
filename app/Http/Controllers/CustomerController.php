@@ -12,24 +12,31 @@ use Psy\Util\Json;
 class CustomerController extends Controller
 {
     function favoriteCustomerPoint(Request $request){
-        $response = new JsonResponse();
+            $response = new JsonResponse();
         if (empty($request->query())){
-            if (!$request->hasCookie('prefcities')){
-                return $response->withCookie('prefcities',null);
+            if (!$request->hasCookie(session('user_id').'prefcities')){
+                return $response->withCookie(cookie()
+                    ->forever(session('user_id').'prefcities',
+                        Json::encode(null)));
             }
 
-            return $request->cookie('prefcities');
+            return $request->cookie(session('user_id').'prefcities');
         }
 
         if (!$request->has('citta0')){
             if ($request->hasCookie('prefcities')){
-                $response->cookie(cookie()->forever('prefcities',null));
+                $response->withCookie(cookie()
+                    ->forever(session('user_id').'prefcities',
+                        Json::encode(null)));
                 return $response;
             }
         }
 
-        $response->withCookie(cookie()->forever('prefcities',
-            Json::encode($request->query())));
+        $response->withCookie(cookie()
+            ->forever(
+                session('user_id').'prefcities',
+                Json::encode($request->query()))
+        );
         $response->setData($request->query());
 
         return $response;
