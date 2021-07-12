@@ -19,7 +19,7 @@ function onJson(json) {
     const section = document.querySelector("#apiNews")
 
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
 
         const art = arts[i];
         //instantiation of the hmtl elements
