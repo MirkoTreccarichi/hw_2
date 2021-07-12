@@ -1,7 +1,7 @@
 
 //FUNCTIONS
 
-function checkEmail(event) {
+async function checkEmail(event) {
     //EMAIL CONTROL
     if (!validateEmail(email.value)) {
         const error = "Email non valida !";
@@ -11,11 +11,11 @@ function checkEmail(event) {
     }
 
     const form = document.forms['registrazione'];
-    const token=document.querySelector('#csrf');
+    const token = document.querySelector('#csrf');
 
-    fetch("http://localhost/HW_2/public/registrazione/email_free", {
+    await fetch("http://localhost/HW_2/public/registrazione/email_free", {
         method: "post",
-        headers:{'X-CSRF-TOKEN': token.content},
+        headers: {'X-CSRF-TOKEN': token.content},
         body: new FormData(signupForm)
     }).then(promise => promise.json()).then(json => {
         if (json) {
@@ -91,7 +91,9 @@ function checkValues(event) {
     event.preventDefault();
     for (element of elementList) {
         if (element.value === "") {
-            const error = "L'elemento " + element.name + " è vuoto !";
+            const error = "L'elemento " +
+                document.querySelector("label[for="+ element.name + "]").textContent
+                + " è vuoto !";
             errors.add(error);
             setError(element);
         }
@@ -100,11 +102,12 @@ function checkValues(event) {
 
 
 
-function checkForm(event) {
+async function checkForm(event) {
     error_display.innerHTML = "";
     error_display.classList.add("hidden");
     checkValues(event);
-    if(errors.size){
+    await checkEmail(event);
+    if (errors.size) {
         event.preventDefault();
         error_display.classList.remove('hidden');
         for (const er of errors) {
