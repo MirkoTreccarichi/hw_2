@@ -36,6 +36,24 @@ function checkPassword(event) {
 
 }
 
+function checkName(event){
+    //NAME CONTROL
+    if(!validateNameSurname(name.value)){
+        const error = "Il nome non è di un formato corretto";
+        errors.add(error);
+        setError(name);
+    }
+}
+
+function  checkSurname(event){
+    //SURNAME CONTROL
+    if(!validateNameSurname(surname.value)){
+        const error = "Il cognome non è di un formato corretto";
+        errors.add(error);
+        setError(surname);
+    }
+}
+
 function checkConfirmPassoword(event) {
     //CONFIRM PASSWORD CONTROL
     if (password.value !== confirmPassoword.value) {
@@ -53,6 +71,11 @@ function validateEmail(email) {
 function validatePassword(password) {
     const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
     return re.test(String(password));
+}
+
+function validateNameSurname(nameSurname){
+    const re = /^[a-zA-Z]{1,}$/;
+    return re.test(String(nameSurname));
 }
 
 
@@ -114,6 +137,12 @@ password.addEventListener('blur', checkPassword);
 
 const confirmPassoword = document.querySelector(".confirm_password input");
 confirmPassoword.addEventListener('blur', checkConfirmPassoword);
+
+const name = document.querySelector(".name input");
+name.addEventListener('blur',checkName);
+
+const surname = document.querySelector(".surname input");
+surname.addEventListener('blur',checkSurname);
 
 const signupForm = document.forms["signup"];
 signupForm.addEventListener("submit", checkForm);
