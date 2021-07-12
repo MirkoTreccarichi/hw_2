@@ -15,9 +15,11 @@
 @section('content')
     <article>
 
-        <section class="poster">
+        <section class="poster titles">
 
+            <h1> Benvenuto {{\App\models\Cliente::where('id',session('user_id'))->first()->nome}}</h1>
             <h1> <a href="{{route('list')}}">Fai la lista , ritira dopo ! </a> </h1>
+            <h1>Scegli il tuo punto vendita preferito</h1>
 
         </section>
 
@@ -25,7 +27,6 @@
         <section class="poster">
 
 
-            <h1>Scegli il tuo punto vendita preferito</h1>
 
 
             <div class="favorites hidden">
