@@ -43,5 +43,3 @@ Route::get('/load_customer_point','ReservedAreaController@loadCustomerPoint');
 
 Route::get('/area_riservata', 'ReservedAreaController@reservedArea')->name('customer_area');
 
-//fixme aggiungere la registrazione con questa regex ^[a-zA-Z]{1,}$
-//fixme associare nei cookie le preferenze a un nome utente
