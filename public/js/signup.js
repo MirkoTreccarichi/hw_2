@@ -91,6 +91,7 @@ function checkValues(event) {
 
 
 async function checkForm(event) {
+    errors.clear();
     event.preventDefault();
     error_display.innerHTML = "";
     error_display.classList.add("hidden");
