@@ -95,7 +95,7 @@ async function checkForm(event) {
     error_display.innerHTML = "";
     error_display.classList.add("hidden");
 
-    if(email.textContent)
+    if(email.value)
     await fetch("http://localhost/HW_2/public/registrazione/email_free", {
         method: "post",
         headers: {'X-CSRF-TOKEN': token.content},
