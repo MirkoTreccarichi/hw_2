@@ -1,29 +1,13 @@
 
 //FUNCTIONS
 
-async function checkEmail(event) {
+function checkEmail(event) {
     //EMAIL CONTROL
     if (!validateEmail(email.value)) {
         const error = "Email non valida !";
         errors.add(error);
         setError(email);
-        return;
     }
-
-    const form = document.forms['registrazione'];
-    const token = document.querySelector('#csrf');
-
-    await fetch("http://localhost/HW_2/public/registrazione/email_free", {
-        method: "post",
-        headers: {'X-CSRF-TOKEN': token.content},
-        body: new FormData(signupForm)
-    }).then(promise => promise.json()).then(json => {
-        if (json) {
-            const error = "Email già presente !";
-            errors.add(error);
-            setError(email);
-        }
-    });
 }
 
 function checkPassword(event) {
@@ -97,18 +81,37 @@ function checkValues(event) {
             errors.add(error);
             setError(element);
         }
+        else{
+            element.focus();
+            element.blur();
+        }
     }
 }
 
 
 
 async function checkForm(event) {
+    event.preventDefault();
     error_display.innerHTML = "";
     error_display.classList.add("hidden");
+
+    if(email.textContent)
+    await fetch("http://localhost/HW_2/public/registrazione/email_free", {
+        method: "post",
+        headers: {'X-CSRF-TOKEN': token.content},
+        body: new FormData(signupForm)
+    }).then(promise => promise.json()).then(json => {
+        if (json) {
+            const error = "Email già presente !";
+            errors.add(error);
+            setError(email);
+        }
+    });
+
     checkValues(event);
-    await checkEmail(event);
+
     if (errors.size) {
-        event.preventDefault();
+
         error_display.classList.remove('hidden');
         for (const er of errors) {
             const element = document.createElement("p");
@@ -156,3 +159,5 @@ const error_display = document.querySelector(".error_display");
 for (element of elementList) {
     element.addEventListener("focus", resetError);
 }
+
+const token = document.querySelector('#csrf');
