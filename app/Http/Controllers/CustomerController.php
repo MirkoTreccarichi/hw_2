@@ -12,7 +12,7 @@ use Psy\Util\Json;
 class CustomerController extends Controller
 {
     function favoriteCustomerPoint(Request $request){
-            $response = new JsonResponse();
+        $response = new JsonResponse();
         if (empty($request->query())){
             if (!$request->hasCookie(session('user_id').'prefcities')){
                 return $response->withCookie(cookie()
