@@ -7,7 +7,21 @@ function checkEmail(event) {
         const error = "Email non valida !";
         errors.add(error);
         setError(email);
+        return
     }
+
+    fetch("http://localhost/HW_2/public/registrazione/email_free", {
+        method: "post",
+        headers: {'X-CSRF-TOKEN': token.content},
+        body: new FormData(signupForm)
+    }).then(promise => promise.json()).then(json => {
+        if (json) {
+            const error = "Email già presente !";
+            errors.add(error);
+            setError(email);
+        }
+    });
+
 }
 
 function checkPassword(event) {
