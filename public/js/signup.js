@@ -113,6 +113,7 @@ async function checkForm(event) {
 
     if (errors.size) {
 
+        error_display.innerHTML = "";
         error_display.classList.remove('hidden');
         for (const er of errors) {
             const element = document.createElement("p");
